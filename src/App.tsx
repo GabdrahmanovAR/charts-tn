@@ -2,47 +2,35 @@ import React from 'react';
 import './App.scss';
 import { Button, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts';
-import { data } from './mock/data';
+import { RcFile } from 'antd/es/upload';
+import { importExcel } from './utils/importExcel';
+import Chart from './components/chart/Chart';
 
 const App = () => {
-  const handleUploadingFile = (info: any) => {
-    console.log(info.file);
+  const handleUploadingFile = (file: RcFile) => {
+    if (file) {
+      importExcel(file);
+    }
+    return false;
   };
 
   return (
     <div className="main">
-      <div>
+      <div className="main__upload">
+        <h3>Загрузите Excel файл</h3>
         <Upload
           name="excel-file"
-          customRequest={handleUploadingFile}
+          beforeUpload={handleUploadingFile}
+          multiple={false}
+          accept=".xls, .xlsx"
         >
           <Button icon={<UploadOutlined />}>
             Click to Upload
           </Button>
         </Upload>
       </div>
-      <div>
-        <BarChart
-          width={1000}
-          height={600}
-          data={data}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-        </BarChart>
+      <div className="main_chart">
+        <Chart />
       </div>
     </div>
   );
