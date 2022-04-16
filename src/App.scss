@@ -1,4 +1,11 @@
 .main {
   display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
   height: 100%;
+
+  .recharts-wrapper {
+    margin: 0 auto;
+  }
 }
