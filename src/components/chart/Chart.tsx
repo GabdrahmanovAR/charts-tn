@@ -6,9 +6,10 @@ import { IChartData } from '../../utils/ConvertJsonToChartData';
 
 interface IChartProps {
   data: IChartData[];
+  color: string;
 }
 
-const Chart: FC<IChartProps> = ({ data }) => (
+const Chart: FC<IChartProps> = ({ data, color }) => (
   <BarChart
     width={1000}
     height={600}
@@ -19,7 +20,7 @@ const Chart: FC<IChartProps> = ({ data }) => (
     <YAxis label={{ value: 'Количество скважин', angle: -90, position: 'insideLeft' }} />
     <Tooltip />
     <Legend />
-    <Bar name="Количество скважин" dataKey="count" fill="#8884d8" />
+    <Bar name="Количество скважин" dataKey="count" fill={color} />
   </BarChart>
 );
 

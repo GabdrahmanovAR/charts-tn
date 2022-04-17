@@ -5,6 +5,7 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { RcFile } from 'antd/es/upload';
+import { SketchPicker } from 'react-color';
 import { importExcel } from './utils/importExcel';
 import Chart from './components/chart/Chart';
 import { IChartData } from './utils/ConvertJsonToChartData';
@@ -13,6 +14,7 @@ const App = () => {
   const [data, setData] = useState([] as IChartData[]);
   const [interval, setInterval] = useState(2);
   const [file, setFile] = useState({} as RcFile);
+  const [barColor, setBarColor] = useState('#279B33');
 
   useEffect(() => {
     if (file.name) {
@@ -30,7 +32,12 @@ const App = () => {
   };
 
   const handleClickFinishButton = (values: any) => {
-    setInterval(values.interval);
+    console.log(values);
+    if (values.interval) setInterval(values.interval);
+  };
+
+  const handleColorChange = (color: any) => {
+    setBarColor(color.hex);
   };
 
   return (
@@ -59,7 +66,6 @@ const App = () => {
               span: 16,
             }}
             onFinish={handleClickFinishButton}
-            // onFinishFailed={onFinishFailed}
           >
             <Form.Item
               label="Интервал"
@@ -82,9 +88,12 @@ const App = () => {
             </Form.Item>
           </Form>
         </div>
+        <div>
+          <SketchPicker onChange={handleColorChange} color={barColor} />
+        </div>
       </div>
       <div className="main_chart">
-        <Chart data={data} />
+        <Chart data={data} color={barColor} />
       </div>
     </div>
   );
