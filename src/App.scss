@@ -3,7 +3,6 @@
   flex-direction: column;
   margin: 0 auto;
   padding: 1rem;
-  height: 100%;
   width: 1000px;
 
   &__header {
@@ -18,5 +17,8 @@
 
   .recharts-wrapper {
     margin: 0 auto;
+  }
+  .recharts-surface {
+    height: 100vh;
   }
 }

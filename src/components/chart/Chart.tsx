@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import {
-  Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis,
+  Bar, BarChart, CartesianGrid, LabelList, Tooltip, XAxis, YAxis,
 } from 'recharts';
 import { IChartData } from '../../utils/ConvertJsonToChartData';
 
@@ -16,11 +16,13 @@ const Chart: FC<IChartProps> = ({ data, color }) => (
     data={data}
   >
     <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="name" label={{ value: 'Qнеф - т/сут', position: 'insideBottomRight', dy: 10 }} />
-    <YAxis label={{ value: 'Количество скважин', angle: -90, position: 'insideLeft' }} />
+    <XAxis dataKey="name" label={{ value: 'Дебит нефти, т/сут', position: 'insideBottom', dy: 15 }} />
+    <YAxis label={{ value: 'Количество скважин, ед.', angle: -90, position: 'insideLeft' }} />
     <Tooltip />
-    <Legend />
-    <Bar name="Количество скважин" dataKey="count" fill={color} />
+    {/* <Legend /> */}
+    <Bar name="Количество скважин, ед." dataKey="count" fill={color}>
+      <LabelList dataKey="count" position="center" />
+    </Bar>
   </BarChart>
 );
 
