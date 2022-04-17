@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis,
 } from 'recharts';
-import { data } from '../../mock/data';
+import { IChartData } from '../../utils/ConvertJsonToChartData';
 
-const Chart = () => (
+interface IChartProps {
+  data: IChartData[];
+}
+
+const Chart: FC<IChartProps> = ({ data }) => (
   <BarChart
     width={1000}
     height={600}
@@ -15,7 +19,7 @@ const Chart = () => (
     <YAxis />
     <Tooltip />
     <Legend />
-    <Bar dataKey="count" fill="#8884d8" />
+    <Bar dataKey="количество" fill="#8884d8" />
   </BarChart>
 );
 
