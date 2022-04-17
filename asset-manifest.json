@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/charts-tn/static/css/main.d8d29ccb.css",
+    "main.js": "/charts-tn/static/js/main.acb037e5.js",
+    "index.html": "/charts-tn/index.html",
+    "main.d8d29ccb.css.map": "/charts-tn/static/css/main.d8d29ccb.css.map",
+    "main.acb037e5.js.map": "/charts-tn/static/js/main.acb037e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8d29ccb.css",
+    "static/js/main.acb037e5.js"
+  ]
+}
