@@ -31,6 +31,11 @@ const App = () => {
     return false;
   };
 
+  const handleRemoveFile = () => {
+    setFile({} as RcFile);
+    setData([] as IChartData[]);
+  };
+
   const handleClickFinishButton = (values: any) => {
     console.log(values);
     if (values.interval) setInterval(values.interval);
@@ -50,6 +55,7 @@ const App = () => {
             beforeUpload={handleUploadingFile}
             multiple={false}
             accept=".xls, .xlsx"
+            onRemove={handleRemoveFile}
           >
             <Button icon={<UploadOutlined />}>
               Click to Upload

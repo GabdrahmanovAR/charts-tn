@@ -3,7 +3,6 @@ import { RcFile } from 'antd/es/upload';
 import { convertJsonToChartData, IChartData } from './ConvertJsonToChartData';
 
 export const importExcel = (file: RcFile, interval: number, data: (chartData: IChartData[]) => void) => {
-  console.log(file.name);
   const reader = new FileReader();
   let chartData: IChartData[] = [];
 
