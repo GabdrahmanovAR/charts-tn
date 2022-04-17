@@ -15,11 +15,11 @@ const Chart: FC<IChartProps> = ({ data }) => (
     data={data}
   >
     <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="name" />
-    <YAxis />
+    <XAxis dataKey="name" label={{ value: 'Qнеф - т/сут', position: 'insideBottomRight', dy: 10 }} />
+    <YAxis label={{ value: 'Количество скважин', angle: -90, position: 'insideLeft' }} />
     <Tooltip />
     <Legend />
-    <Bar dataKey="количество" fill="#8884d8" />
+    <Bar name="Количество скважин" dataKey="count" fill="#8884d8" />
   </BarChart>
 );
 

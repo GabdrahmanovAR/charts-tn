@@ -1,6 +1,6 @@
 export interface IChartData {
   name: string;
-  количество: number;
+  count: number;
 }
 
 const countOfMatches = (data: number[], currentIdx: number, interval: number) => {
@@ -27,7 +27,7 @@ export const convertJsonToChartData = (jsonData: any, interval: number) => {
     data.push(
       {
         name: `${i}-${i + Number(interval)}`,
-        количество: countOfMatches(columnData, i, interval),
+        count: countOfMatches(columnData, i, interval),
       },
     );
   }
@@ -35,7 +35,7 @@ export const convertJsonToChartData = (jsonData: any, interval: number) => {
   console.log(data);
   // Удаление с конца нулевых значений
   for (let i = data.length - 1; i > 0; i -= 1) {
-    if (data[i].количество === 0) data.pop();
+    if (data[i].count === 0) data.pop();
   }
 
   return data;
